@@ -1,0 +1,59 @@
+{
+  "name": "ngconsultant",
+  "version": "1.0.0",
+  "description": "1.0.0",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "webpack-dev-server --history-api-fallback --env.TARGET DEV",
+    "postinstall": "typings i",
+    "lint": "tslint src/**/*ts",
+    "mocha": "mocha --require ts-node/register src/**/*-unit-test.ts",
+    "test": "npm run lint",
+    "build": "webpack --env.TARGET PROD",
+    "ci": "npm t && npm run build"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.8",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.33.3",
+    "lodash": "^4.5.1",
+    "materialize-css": "^0.97.5",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "^0.5.15"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.8",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.9.0",
+    "json-loader": "^0.5.4",
+    "mocha": "^2.4.5",
+    "node-sass": "^3.4.2",
+    "open-browser-webpack-plugin": "0.0.2",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "sinon": "^1.17.3",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.1",
+    "ts-node": "^0.5.5",
+    "tsify": "^0.14.1",
+    "tslint": "^3.4.0",
+    "typescript": "^1.8.2",
+    "typings": "^0.6.8",
+    "watch": "^0.17.1",
+    "webpack": "^2.1.0-beta.4",
+    "webpack-dev-server": "^2.0.0-beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomastrajan/ngconsultant.git"
+  },
+  "keywords": [],
+  "author": "Tomas Trajan <tomas.trajan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomastrajan/ngconsultant/issues"
+  },
+  "homepage": "https://github.com/tomastrajan/ngconsultant#readme"
+}

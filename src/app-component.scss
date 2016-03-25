@@ -1,0 +1,35 @@
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+.wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+.content {
+  padding-bottom:240px;
+}
+
+.page-footer {
+  position:absolute;
+  bottom:0;
+  width: 100%;
+}
+
+.router-link-active {
+  background-color: $primary-color-light;
+
+  &:hover {
+    background-color: $primary-color-light;
+  }
+
+  &#logo-container {
+    box-shadow: none;
+    background-color: $primary-color;
+  }
+}
+

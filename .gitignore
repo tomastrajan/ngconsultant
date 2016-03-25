@@ -1,0 +1,7 @@
+.idea
+node_modules
+typings
+dev
+build
+prod
+dist

@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "4.1"
+# hack until webpack peerDependencies are resolved
+#script:
+#  - npm run ci
+#  - bash ./.travis-deploy.sh
+install:
+  - npm --version
+script:
+  - npm --version
+after_script:
+  - npm i
+  - npm run ci
+  - bash ./.travis-deploy.sh
