@@ -65,7 +65,8 @@ const CONFIG_TARGET = {
         plugins: [
             new OpenBrowserWebpackPlugin(),
             new HtmlWebpackPlugin({
-                template: "./index.html"
+                template: "./index.html",
+                favicon: "./favicon.ico"
             }),
             new webpack.LoaderOptionsPlugin({
                 minimize: false,
