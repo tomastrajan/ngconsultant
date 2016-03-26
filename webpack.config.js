@@ -36,8 +36,14 @@ const CONFIG_DEFAULT = {
                     { loader: "sass", query: { sourceMap: true } }
                 ]
             }, {
-                test: /\.(eot|ttf|woff|woff2|svg)/,
-                loader: "file"
+                test: /\.(jpg|png|eot|ttf|woff|woff2|svg)/,
+                loader: "file",
+                query: {
+                    name: "[path][hash].[ext]"
+                }
+            }, {
+                test: /\.html$/,
+                loader: "html"
             }
         ]
     },

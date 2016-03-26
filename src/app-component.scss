@@ -20,16 +20,57 @@ body {
   width: 100%;
 }
 
-.router-link-active {
-  background-color: $primary-color-light;
 
-  &:hover {
-    background-color: $primary-color-light;
+
+nav {
+
+  $header-primary: color("materialize-red", "lighten-1");
+  $header-secondary: color("materialize-red", "lighten-4");
+
+  #logo-container {
+
+    color: $primary-color;
+
+    span {
+      color: $primary-color-light;
+      font-weight: bold;
+    }
+
+    img {
+      float: left;
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+    }
   }
 
-  &#logo-container {
-    box-shadow: none;
-    background-color: $primary-color;
+  ul {
+    li {
+      a {
+        color: $header-primary;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $white;
+          border-bottom: 5px solid $header-secondary;
+        }
+      }
+    }
+  }
+
+  .router-link-active {
+    border-bottom: 5px solid $header-primary;
+    padding-bottom: -5px;
+
+    &:hover {
+      background-color: $white;
+      border-bottom: 5px solid $header-primary;
+    }
+
+    &#logo-container {
+      border: 0px;
+    }
   }
 }
 
