@@ -1,5 +1,5 @@
 import { Component } from "angular2/core";
-import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig } from "angular2/router";
+import { ROUTER_DIRECTIVES, RouteConfig } from "angular2/router";
 
 import HomeComponent from "./home/home-component";
 import AboutComponent from "./about/about-component";
@@ -11,8 +11,7 @@ import ServicesComponent from "./services/services-component";
 @Component({
     selector: "app",
     template: require("./app-component.html"),
-    directives: [ROUTER_DIRECTIVES],
-    providers: [ROUTER_PROVIDERS]
+    directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
     { path: "/home", name: "Home", component: HomeComponent, useAsDefault: true },
