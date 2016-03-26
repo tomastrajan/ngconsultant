@@ -83,8 +83,7 @@ const CONFIG_TARGET = {
     PROD: {
         output: {
             path: path.join(__dirname, "./prod"),
-            filename: "[name].[chunkhash].js",
-            publicPath: "ngconsultant/"
+            filename: "[name].[chunkhash].js"
         },
         plugins: [
             new CleanWebpackPlugin(["prod"]),
