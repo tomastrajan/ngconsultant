@@ -88,7 +88,8 @@ const CONFIG_TARGET = {
         plugins: [
             new CleanWebpackPlugin(["prod"]),
             new HtmlWebpackPlugin({
-                template: "./index.html"
+                template: "./index.html",
+                favicon: "./favicon.ico"
             })
             //,
             //new webpack.LoaderOptionsPlugin({
