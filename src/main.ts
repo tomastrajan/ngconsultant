@@ -11,7 +11,7 @@ import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from "angula
 
 import "./main.scss";
 
-import AppComponent from "./app-component";
+import AppComponent from "./app/app-component";
 
 bootstrap(AppComponent, [
     HTTP_PROVIDERS,

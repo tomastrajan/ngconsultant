@@ -36,11 +36,14 @@ const CONFIG_DEFAULT = {
                     { loader: "sass", query: { sourceMap: true } }
                 ]
             }, {
-                test: /\.(jpg|png|eot|ttf|woff|woff2|svg)/,
+                test: /\.(jpg|eot|ttf|woff|woff2|svg)/,
                 loader: "file",
                 query: {
                     name: "[path][hash].[ext]"
                 }
+            }, {
+                test: /\.png/,
+                loader: "url"
             }, {
                 test: /\.html$/,
                 loader: "html"
@@ -90,14 +93,14 @@ const CONFIG_TARGET = {
             new HtmlWebpackPlugin({
                 template: "./index.html",
                 favicon: "./favicon.ico"
+            }),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                // mangle: false
+                mangle: {
+                    except: ["RouterLink"]
+                }
             })
-            //,
-            //new webpack.LoaderOptionsPlugin({
-            //    minimize: true,
-            //    debug: false
-            //}),
-            //new webpack.optimize.DedupePlugin(),
-            //new webpack.optimize.UglifyJsPlugin()
         ]
     }
 };
