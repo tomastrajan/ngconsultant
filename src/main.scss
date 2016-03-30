@@ -6,3 +6,11 @@
 
 @import "app/app-component";
 @import "home/home-component";
+
+a {
+  font-weight: bold;
+
+  &:hover {
+    color: $ngc-primary-darken;
+  }
+}

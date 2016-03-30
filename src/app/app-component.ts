@@ -21,4 +21,6 @@ import ServicesComponent from "../services/services-component";
     { path: "/about", name: "About", component: AboutComponent },
     { path: "/contact", name: "Contact", component: ContactComponent }
 ])
-export default class AppComponent {}
+export default class AppComponent {
+    public year: number = new Date().getFullYear();
+}

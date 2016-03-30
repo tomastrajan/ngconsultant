@@ -2,7 +2,8 @@
     <nav class="white">
         <div class="nav-wrapper container">
             <a id="logo-container" [routerLink]="['Home']" class="brand-logo">
-                <img src="../images/ngconsultant-logo-small.png" alt="ngconsultant"/>
+                <img src="../images/ngconsultant-logo-small.png" class="logo" alt="ngconsultant"/>
+                <img src="../images/ngconsultant-logo-small-glow.png" class="logo-glow" alt="ngconsultant logo glow"/>
                 <span>ng</span>consultant
             </a>
             <ul class="right hide-on-med-and-down">
@@ -27,28 +28,51 @@
     <div class="content container">
         <router-outlet></router-outlet>
     </div>
-    <footer class="page-footer">
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <div class="row hide-on-small-only">
+                <div class="col m4 social-holder valign-wrapper">
+                    <p class="valign">
+                        <a href="https://github.com/tomastrajan"><i class="zmdi zmdi-github-alt zmdi-hc-2x"></i></a>
+                        <a href="https://twitter.com/tomastrajan"><i class="zmdi zmdi-twitter zmdi-hc-2x"></i></a>
+                        <a href="https://www.youtube.com/tomastrajan"><i class="zmdi zmdi-youtube-play zmdi-hc-2x"></i></a>
+                        <a href="https://www.linkedin.com/in/tomastrajan"><i class="zmdi zmdi-linkedin zmdi-hc-2x"></i></a>
+                        <a href="http://stackoverflow.com/users/2650426/tomastrajan"><i class="zmdi zmdi-stackoverflow zmdi-hc-2x"></i></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trajan.android.game.Quado&hl=en"><i class="zmdi zmdi-google-play zmdi-hc-2x"></i></a>
+                        <a href="https://www.instagram.com/tomastrajan/"><i class="zmdi zmdi-instagram zmdi-hc-2x"></i></a>
+                    </p>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col m4 logo-holder">
+                    <a [routerLink]="['Home']">
+                        <img src="../images/ngconsultant-logo-small.png" class="logo" alt="ngconsultant"/>
+                        <img src="../images/ngconsultant-logo-small-glow.png" class="logo-glow" alt="ngconsultant logo glow"/>
+                        <div><span>ng</span>consultant</div>
+                    </a>
+                </div>
+                <div class="col m4 info-holder valign-wrapper">
+                    <p class="valign">Tomas Trajan  ©{{year}}</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="row hide-on-med-and-up">
+                <div class="col s12 logo-holder">
+                    <a [routerLink]="['Home']">
+                        <img src="../images/ngconsultant-logo-small.png" class="logo" alt="ngconsultant"/>
+                        <img src="../images/ngconsultant-logo-small-glow.png" class="logo-glow" alt="ngconsultant logo glow"/>
+                        <div><span>ng</span>consultant</div>
+                    </a>
+                </div>
+                <div class="col s12 social-holder">
+                    <a href="https://github.com/tomastrajan"><i class="zmdi zmdi-github-alt zmdi-hc-2x"></i></a>
+                    <a href="https://twitter.com/tomastrajan"><i class="zmdi zmdi-twitter zmdi-hc-2x"></i></a>
+                    <a href="https://www.youtube.com/tomastrajan"><i class="zmdi zmdi-youtube-play zmdi-hc-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/tomastrajan"><i class="zmdi zmdi-linkedin zmdi-hc-2x"></i></a>
+                    <a href="http://stackoverflow.com/users/2650426/tomastrajan"><i class="zmdi zmdi-stackoverflow zmdi-hc-2x"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.trajan.android.game.Quado&hl=en"><i class="zmdi zmdi-google-play zmdi-hc-2x"></i></a>
+                    <a href="https://www.instagram.com/tomastrajan/"><i class="zmdi zmdi-instagram zmdi-hc-2x"></i></a>
+                </div>
+                <div class="col s12 info-holder">
+                    <p>Tomas Trajan  ©{{year}}</p>
+                </div>
             </div>
         </div>
     </footer>
