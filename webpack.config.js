@@ -10,6 +10,11 @@ const OpenBrowserWebpackPlugin = require("open-browser-webpack-plugin");
 const CONFIG_DEFAULT = {
     context: path.join(__dirname, "./src"),
     entry: {
+        vendor: [
+            "es6-shim", "es6-promise", "zone.js", "rxjs", "reflect-metadata",
+            "angular2/animate", "angular2/bootstrap", "angular2/common", "angular2/compiler", "angular2/core",
+            "angular2/http", "angular2/instrumentation", "angular2/router"
+        ],
         main: "./main.ts"
     },
     module: {
@@ -56,7 +61,14 @@ const CONFIG_DEFAULT = {
             path.resolve("./src"),
             "node_modules"
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./index.html",
+            favicon: "./favicon.ico",
+            chunksSortMode: "dependency"
+        })
+    ]
 };
 
 const CONFIG_TARGET = {
@@ -67,20 +79,8 @@ const CONFIG_TARGET = {
             path: path.join(__dirname, "./dev"),
             filename: "[name].js"
         },
-        module: {
-          loaders: [
-          ]
-        },
         plugins: [
-            new OpenBrowserWebpackPlugin(),
-            new HtmlWebpackPlugin({
-                template: "./index.html",
-                favicon: "./favicon.ico"
-            }),
-            new webpack.LoaderOptionsPlugin({
-                minimize: false,
-                debug: true
-            })
+            new OpenBrowserWebpackPlugin()
         ]
     },
     PROD: {
@@ -90,21 +90,23 @@ const CONFIG_TARGET = {
         },
         plugins: [
             new CleanWebpackPlugin(["prod"]),
-            new HtmlWebpackPlugin({
-                template: "./index.html",
-                favicon: "./favicon.ico"
-            }),
-            new webpack.optimize.DedupePlugin(),
             new webpack.optimize.UglifyJsPlugin({
-                // mangle: false
                 mangle: {
                     except: ["RouterLink"]
                 }
+            }),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: "vendor",
+                filename: "vendor.[chunkhash].js"
             })
         ]
     }
 };
 
 module.exports = function(env) {
-    return _.merge(CONFIG_DEFAULT, CONFIG_TARGET[env.TARGET || "DEV"])
+    return  _.mergeWith(CONFIG_DEFAULT, CONFIG_TARGET[env.TARGET || "DEV"], function (a, b) {
+        return _.isArray(a) ? _.concat(a, b) : undefined;
+    });
+    return config;
 };

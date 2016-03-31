@@ -2,10 +2,6 @@ import { Component } from "angular2/core";
 
 @Component({
     selector: "home",
-    template: `
-        <div class="home">
-            <h1>Home</h1>
-        </div>
-    `
+    template: require("./home-component.html")
 })
 export default class HomeComponent {}
