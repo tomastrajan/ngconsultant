@@ -1,5 +1,5 @@
-import { Component } from "angular2/core";
-import { ROUTER_DIRECTIVES, RouteConfig } from "angular2/router";
+import { Component, PLATFORM_DIRECTIVES } from "angular2/core";
+import { ROUTER_DIRECTIVES, RouteConfig, Router } from "angular2/router";
 
 import HomeComponent from "../home/home-component";
 import AboutComponent from "../about/about-component";
@@ -23,4 +23,11 @@ import ServicesComponent from "../services/services-component";
 ])
 export default class AppComponent {
     public year: number = new Date().getFullYear();
+    public route: string;
+
+    constructor(private router: Router) {
+        router.subscribe(route => {
+            this.route = route;
+        });
+    }
 }

@@ -19,6 +19,11 @@ body {
   @media #{$medium-and-up} {
     padding-bottom: 150px;
   }
+
+  &.home {
+    background: url("../images/background-home.jpg");
+    background-size: cover;
+  }
 }
 
 footer {
