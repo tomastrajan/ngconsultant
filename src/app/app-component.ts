@@ -1,4 +1,4 @@
-import { Component, PLATFORM_DIRECTIVES } from "angular2/core";
+import { Component } from "angular2/core";
 import { ROUTER_DIRECTIVES, RouteConfig, Router } from "angular2/router";
 
 import HomeComponent from "../home/home-component";
@@ -26,7 +26,7 @@ export default class AppComponent {
     public route: string;
 
     constructor(private router: Router) {
-        router.subscribe(route => {
+        router.subscribe((route: string) => {
             this.route = route;
         });
     }
