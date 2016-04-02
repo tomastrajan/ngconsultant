@@ -6,6 +6,7 @@ const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OpenBrowserWebpackPlugin = require("open-browser-webpack-plugin");
+const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
 const CONFIG_DEFAULT = {
     context: path.join(__dirname, "./src"),
@@ -35,7 +36,7 @@ const CONFIG_DEFAULT = {
             }, {
                 test: /\.scss/,
                 loaders: [
-                    "style",
+                    ExtractTextWebpackPlugin.extract("style"),
                     { loader: "css", query: { modules: false, sourceMap: true } },
                     { loader: "resolve-url" },
                     { loader: "sass", query: { sourceMap: true } }
@@ -63,6 +64,7 @@ const CONFIG_DEFAULT = {
         ]
     },
     plugins: [
+        new ExtractTextWebpackPlugin("styles.[hash].css"),
         new HtmlWebpackPlugin({
             template: "./index.html",
             favicon: "./favicon.ico",
