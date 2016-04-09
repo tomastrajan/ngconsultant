@@ -49,7 +49,7 @@ export default class OssService {
     }
 
     private withStargazerOnly(repo: Repository): boolean {
-        return repo.stargazers.length > 0;
+        return repo.stargazers > 0;
     }
 
     private sortByStargazers(a: Repository, b: Repository): number {
@@ -97,25 +97,25 @@ export default class OssService {
 }
 
 export interface Repository {
-    id: String;
-    name: String;
-    description: String;
+    id: string;
+    name: string;
+    description: string;
 
-    url: String;
-    clone: String;
-    homepage: String;
+    url: string;
+    clone: string;
+    homepage: string;
 
-    stargazers: String;
-    forks: String;
+    stargazers: number;
+    forks: number;
     owner: Owner;
 }
 
 export interface Owner {
-    id: String;
-    type: String;
-    name: String;
+    id: string;
+    type: string;
+    name: string;
 
-    url: String;
+    url: string;
     avatar: String;
 }
 
