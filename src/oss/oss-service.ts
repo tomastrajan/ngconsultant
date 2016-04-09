@@ -49,7 +49,7 @@ export default class OssService {
     }
 
     private withStargazerOnly(repo: Repository): boolean {
-        return repo.stargazers > 0;
+        return repo.stargazers.length > 0;
     }
 
     private sortByStargazers(a: Repository, b: Repository): number {
