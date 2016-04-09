@@ -12,7 +12,7 @@ const CONFIG_DEFAULT = {
     context: path.join(__dirname, "./src"),
     entry: {
         vendor: [
-            "es6-shim", "es6-promise", "zone.js", "rxjs", "reflect-metadata",
+            "es6-shim", "es6-promise", "zone.js", "rxjs", "rxjs/Rx", "reflect-metadata",
             "angular2/animate", "angular2/bootstrap", "angular2/common", "angular2/compiler", "angular2/core",
             "angular2/http", "angular2/instrumentation", "angular2/router"
         ],

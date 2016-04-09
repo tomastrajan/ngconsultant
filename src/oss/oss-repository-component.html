@@ -1,0 +1,27 @@
+<div class="col s12 m6 oss-repository">
+    <div class="card">
+        <div class="card-content">
+            <div class="row">
+                <span class="count-icons">
+                    <span *ngIf="repo.stargazers">
+                        <i class="material-icons">star</i> {{repo.stargazers}}
+                    </span>
+                    <span *ngIf="repo.forks">
+                        <i class="material-icons">call_split</i> {{repo.forks}}
+                    </span>
+                </span>
+                <div class="col s12 heading">
+                    <a class="card-title">{{repo.name}}</a>
+                </div>
+            </div>
+            <p>{{repo.description}}</p>
+        </div>
+        <div class="card-action">
+            <a class="" [href]="repo.url">Github</a>
+            <a class="" [href]="repo.homepage" *ngIf="repo.homepage">Homepage</a>
+            <a [href]="repo.owner.url">
+                <img class="avatar" [src]="repo.owner.avatar" />
+            </a>
+        </div>
+    </div>
+</div>

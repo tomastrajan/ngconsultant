@@ -1,26 +1,22 @@
 import { Component } from "angular2/core";
+import OssService, { Repository } from "./oss-service";
+import OssRepositoryComponent from "./oss-repository-component";
 
 @Component({
     selector: "oss",
-    template: `
-        <div>
-            <h1>Oss</h1>
-            <div class="row">
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div>
-        </div>
-    `
+    template: require("./oss-component.html"),
+    directives: [OssRepositoryComponent],
+    providers: [OssService]
 })
-export default class OssComponent {}
+export default class OssComponent {
+
+    private repos: Repository[] = [];
+    
+    constructor(private ossService: OssService) {
+        ossService.getUserRepositories("tomastrajan")
+            .subscribe((repos: any) => { 
+                this.repos = repos; 
+            });
+    }
+
+}

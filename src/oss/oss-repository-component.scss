@@ -1,0 +1,39 @@
+.oss-repository {
+
+  .card {
+    background-color: $white;
+
+    .card-content {
+      min-height: 160px;
+    }
+  }
+
+  .heading {
+    padding-right: 130px;
+  }
+
+  .count-icons {
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    width: 120px;
+    text-align: right;
+
+    i {
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  .avatar {
+    position: relative;
+    top: -8px;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+  }
+
+}
