@@ -13,6 +13,8 @@ body {
 }
 
 .content {
+  padding-top: 20px;
+
   @media #{$small-and-down} {
     padding-bottom: 300px;
   }
@@ -21,8 +23,87 @@ body {
   }
 
   &.home {
-    background: url("../images/background-home.jpg");
+    background: url("../images/background-home.jpg") top center;
     background-size: cover;
+  }
+}
+
+nav {
+  position: relative;
+
+  #logo-container {
+    color: $primary-color;
+
+    span {
+      color: $primary-color-light;
+      font-weight: bold;
+    }
+
+    .logo {
+      float: left;
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+    }
+
+    .logo-glow {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      opacity: 0;
+
+      &:hover {
+        -webkit-animation: pulsate 3s ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+      }
+
+      @-webkit-keyframes pulsate {
+        0% {opacity: 0.0;}
+        50% {opacity: 1.0;}
+        100% {opacity: 0.0;}
+      }
+    }
+  }
+
+  .button-collapse {
+    color: $ngc-primary;
+  }
+
+  .side-nav {
+    li {
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+
+  ul {
+    li {
+      a {
+        color: $ngc-primary;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $white;
+          border-bottom: 5px solid $ngc-primary-darken;
+        }
+      }
+    }
+  }
+
+  .router-link-active {
+    border-bottom: 5px solid $ngc-primary;
+    padding-bottom: -5px;
+
+    &:hover {
+      background-color: $white;
+      border-bottom: 5px solid $ngc-primary;
+    }
+
+    &#logo-container {
+      border: 0px;
+    }
   }
 }
 
@@ -120,85 +201,5 @@ footer {
       }
     }
 
-  }
-}
-
-
-
-nav {
-
-  #logo-container {
-    color: $primary-color;
-
-    span {
-      color: $primary-color-light;
-      font-weight: bold;
-    }
-
-    .logo {
-      float: left;
-      position: relative;
-      top: 2px;
-      margin-right: 10px;
-    }
-
-    .logo-glow {
-      position: absolute;
-      top: -30px;
-      left: -30px;
-      opacity: 0;
-
-      &:hover {
-        -webkit-animation: pulsate 3s ease-in-out;
-        -webkit-animation-iteration-count: infinite;
-      }
-
-      @-webkit-keyframes pulsate {
-        0% {opacity: 0.0;}
-        50% {opacity: 1.0;}
-        100% {opacity: 0.0;}
-      }
-    }
-  }
-
-  .button-collapse {
-    color: $ngc-primary;
-  }
-
-  .side-nav {
-    li {
-      &:hover {
-        background-color: $white;
-      }
-    }
-  }
-
-  ul {
-    li {
-      a {
-        color: $ngc-primary;
-        text-transform: uppercase;
-        font-weight: bold;
-
-        &:hover {
-          background-color: $white;
-          border-bottom: 5px solid $ngc-primary-darken;
-        }
-      }
-    }
-  }
-
-  .router-link-active {
-    border-bottom: 5px solid $ngc-primary;
-    padding-bottom: -5px;
-
-    &:hover {
-      background-color: $white;
-      border-bottom: 5px solid $ngc-primary;
-    }
-
-    &#logo-container {
-      border: 0px;
-    }
   }
 }

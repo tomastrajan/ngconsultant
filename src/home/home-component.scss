@@ -1,3 +1,30 @@
 .home {
-  text-align: center;
+  padding-top: 60px;
+  min-height: 500px;
+
+  h1 {
+    text-align: center;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: 900;
+    -webkit-text-shadow: 0 0 10px rgba(165,204,207,1);
+    -moz-text-shadow: 0 0 10px rgba(165,204,207,1);
+    text-shadow: 0 0 10px rgba(165,204,207,1);
+
+    span {
+      color: $ngc-primary;
+    }
+  }
+
+  h4 {
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    margin-left: 20%;
+    margin-right: 20%;
+    -webkit-text-shadow: 0 0 10px rgba(0,0,0,0.75);
+    -moz-text-shadow: 0 0 10px rgba(0,0,0,0.75);
+    text-shadow: 0 0 10px rgba(0,0,0,0.75);
+  }
+
 }
