@@ -7,6 +7,7 @@ import BlogComponent from "../blog/blog-component";
 import ContactComponent from "../contact/contact-component";
 import OssComponent from "../oss/oss-component";
 import ServicesComponent from "../services/services-component";
+import SandboxComponent from "../sandbox/sandbox-component";
 
 @Component({
     selector: "app",
@@ -17,6 +18,7 @@ import ServicesComponent from "../services/services-component";
     { path: "/home", name: "Home", component: HomeComponent, useAsDefault: true },
     { path: "/services", name: "Services", component: ServicesComponent },
     { path: "/oss", name: "Oss", component: OssComponent },
+    { path: "/sandbox/...", name: "Sandbox", component: SandboxComponent },
     { path: "/blog", name: "Blog", component: BlogComponent },
     { path: "/about", name: "About", component: AboutComponent },
     { path: "/contact", name: "Contact", component: ContactComponent }

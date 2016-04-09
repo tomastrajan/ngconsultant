@@ -1,0 +1,13 @@
+<div class="sandbox">
+    <div class="row">
+        <div class="col m3 s12">
+            <div class="collection sandbox-menu">
+                <a class="collection-item" [routerLink]="['./SandboxInfo']">Info</a>
+                <a class="collection-item" [routerLink]="['./RxJSStateStore']">RxJS state store</a>
+            </div>
+        </div>
+        <div class="col m8 s12 push-m1">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.sandbox {
+
+  .sandbox-menu {
+
+    margin-top: 140px;
+
+    .collection-item {
+
+      &.router-link-active {
+        background-color: $secondary-color;
+        color: $white;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+
+    }
+  }
+
+}
