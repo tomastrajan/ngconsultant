@@ -1,5 +1,8 @@
 <div class="wrapper">
     <nav class="white">
+        <div *ngIf="pending" class="progress">
+            <div class="indeterminate"></div>
+        </div>
         <div class="nav-wrapper container">
             <a id="logo-container" [routerLink]="['Home']" class="brand-logo">
                 <img src="../images/ngconsultant-logo-small.png" class="logo" alt="ngconsultant"/>

@@ -1,20 +1,18 @@
 import { Observable } from "rxjs/Observable";
 import { Injectable } from "angular2/core";
-import { Http, Response } from "angular2/http";
-
-
+import { Response } from "angular2/http";
+import HttpClient from "../common/services/http-client";
 
 @Injectable()
 export default class OssService {
 
     private API_URL: string = "https://api.github.com";
 
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     public searchRepositories(query: any): Observable<Repository> {
         return this.http
             .get(`${this.API_URL}search/repositories?q=${query}`)
-            .map((res: Response) => res.json())
             .map((data: any) => data.items
                 .map(this.dtoToModelRepository)
                 .sort(this.sortByStargazers)
@@ -24,7 +22,6 @@ export default class OssService {
     public getUserRepositories(user: string): Observable<Repository> {
         return this.http
             .get(`${this.API_URL}/users/${user}/repos`)
-            .map((res: Response) => res.json())
             .map((repos: any) => repos
                 .map(this.dtoToModelRepository)
                 .filter(this.withStargazerOnly)
@@ -36,7 +33,6 @@ export default class OssService {
         path = path === "null" ? "" : path;
         return this.http
             .get(`${this.API_URL}repos/${owner}/${repo}/contents/${path}`)
-            .map((res: Response) => res.json())
             .map((data: any) => Array.isArray(data)
                 ? data.map(this.dtoToModelContent).sort(this.sortByType)
                 : this.dtoToModelContent(data));
@@ -44,6 +40,7 @@ export default class OssService {
 
     public getContentRaw(url: string): any {
         return this.http
+            .getHttp()
             .get(url)
             .map((res: Response) => res.text());
     }
