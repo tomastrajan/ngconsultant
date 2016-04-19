@@ -1,7 +1,7 @@
 import { Component } from "angular2/core";
 import { ROUTER_DIRECTIVES, RouteConfig, Router } from "angular2/router";
 
-import HttpClient from "../common/services/http-client"
+import HttpClient from "../common/services/http-client";
 
 import HomeComponent from "../home/home-component";
 import AboutComponent from "../about/about-component";
@@ -34,7 +34,7 @@ export default class AppComponent {
 
     constructor(private router: Router, private http: HttpClient) {
         this.http.pending
-            .subscribe(pending => setTimeout(() => this.pending = pending));
+            .subscribe((pending: boolean) => setTimeout(() => this.pending = pending));
 
         this.router
             .subscribe((route: string) => {

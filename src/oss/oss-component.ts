@@ -15,7 +15,7 @@ export default class OssComponent implements OnActivate {
 
     constructor(private ossService: OssService) {}
 
-    routerOnActivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction): any {
+    public routerOnActivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction): any {
         this.ossService.getUserRepositories("tomastrajan")
             .subscribe(
                 (repos: any) => this.repos = repos,
