@@ -93,9 +93,10 @@ const CONFIG_TARGET = {
         plugins: [
             new CleanWebpackPlugin(["prod"]),
             new webpack.optimize.UglifyJsPlugin({
-                mangle: {
-                    except: ["RouterLink", "OssRepositoryComponent"]
-                }
+                mangle: false
+                // mangle: {
+                //     except: ["RouterLink", "OssRepositoryComponent"]
+                // }
             }),
             new webpack.optimize.DedupePlugin(),
             new webpack.optimize.CommonsChunkPlugin({
