@@ -82,7 +82,10 @@ const CONFIG_TARGET = {
             filename: "[name].js"
         },
         plugins: [
-            new OpenBrowserWebpackPlugin()
+            new OpenBrowserWebpackPlugin(),
+            new webpack.DefinePlugin({
+                PROD: "false"
+            })
         ]
     },
     PROD: {
@@ -102,6 +105,9 @@ const CONFIG_TARGET = {
             new webpack.optimize.CommonsChunkPlugin({
                 name: "vendor",
                 filename: "vendor.[chunkhash].js"
+            }),
+            new webpack.DefinePlugin({
+                PROD: "true"
             })
         ]
     }
