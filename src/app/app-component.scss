@@ -36,6 +36,9 @@ body {
 nav {
   position: relative;
 
+  height: 64px !important;
+  line-height: 64px !important;;
+
   .progress {
     position: absolute;
     bottom: -5px;
