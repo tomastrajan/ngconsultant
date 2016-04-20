@@ -1,5 +1,23 @@
-<div>
+<div class="oss">
     <h1>Open source</h1>
+    <div class="row">
+        <div class="col m12 l6">
+            <blockquote>
+                <p class="flow-text">
+                    Over the years <b>I invested a lots of hours</b> in building of open source
+                    solutions because I believe in giving back to community.
+                </p>
+            </blockquote>
+        </div>
+        <p class="col m12 l6">
+            Software developer community is quite unique in comparison to other industries.
+            Sharing of the content and ideas is considered the norm. This promotes development
+            of new original ideas and their spread with always increasing velocity. In the end
+            we get quality solutions and tools which enable us to deliver better products to our customers.
+            Feel free to check <a [routerLink]="['Sandbox']">sandbox</a> to see my latest front-end
+            experiments.
+        </p>
+    </div>
     <div class="row">
         <oss-repository *ngFor="#repo of repos" [repo]="repo"></oss-repository>
     </div>

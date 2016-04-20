@@ -10,24 +10,20 @@
                 <span>ng</span>consultant
             </a>
             <ul class="right hide-on-med-and-down">
-                <li><a [routerLink]="['Home']">Home</a></li>
                 <li><a [routerLink]="['Services']">Services</a></li>
                 <li><a [routerLink]="['Blog']">Blog</a></li>
                 <li><a [routerLink]="['Oss']">Open source</a></li>
-                <li><a [routerLink]="['Sandbox']">Sandbox</a></li>
-                <li><a [routerLink]="['About']">About</a></li>
                 <li><a [routerLink]="['Contact']">Contact</a></li>
             </ul>
-            <ul id="nav-mobile" class="side-nav" id="side-mobile">
-                <li><a [routerLink]="['Home']">Home</a></li>
+            <ul id="slide-out-menu" class="side-nav">
                 <li><a [routerLink]="['Services']">Services</a></li>
                 <li><a [routerLink]="['Blog']">Blog</a></li>
                 <li><a [routerLink]="['Oss']">Open source</a></li>
-                <li><a [routerLink]="['Sandbox']">Sandbox</a></li>
-                <li><a [routerLink]="['About']">About</a></li>
                 <li><a [routerLink]="['Contact']">Contact</a></li>
             </ul>
-            <a href="javascript:void(0)" data-activates="side-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="javascript:void(0)" data-activates="slide-out-menu" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
         </div>
     </nav>
     <div class="content {{route}}">

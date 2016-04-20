@@ -23,8 +23,13 @@ body {
   }
 
   &.home {
-    background: url("../images/background-home.jpg") top center;
+    background: url("../images/background-home.jpg") top center no-repeat;
     background-size: cover;
+  }
+
+  &.oss {
+    background: url("../images/background-blog.jpg") top center no-repeat;
+    background-size: contain;
   }
 }
 
@@ -36,6 +41,16 @@ nav {
     bottom: -5px;
     height: 5px;
     margin: 0;
+  }
+
+  //.full-nav {
+  //  @media screen and (max-width: 1300px) {
+  //    display: none !important;
+  //  }
+  //}
+
+  #slide-out-menu {
+    margin-left: 240px;
   }
 
   #logo-container {

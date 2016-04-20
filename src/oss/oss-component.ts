@@ -1,12 +1,12 @@
 import { Component } from "angular2/core";
 import OssService, { Repository } from "./oss-service";
 import OssRepositoryComponent from "./oss-repository-component";
-import {OnActivate, ComponentInstruction} from "angular2/router";
+import { OnActivate, ComponentInstruction, ROUTER_DIRECTIVES } from "angular2/router";
 
 @Component({
     selector: "oss",
     template: require("./oss-component.html"),
-    directives: [OssRepositoryComponent],
+    directives: [ROUTER_DIRECTIVES, OssRepositoryComponent],
     providers: [OssService]
 })
 export default class OssComponent implements OnActivate {
@@ -15,7 +15,7 @@ export default class OssComponent implements OnActivate {
 
     constructor(private ossService: OssService) {}
 
-    public routerOnActivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction): any {
+    public routerOnActivate(next: ComponentInstruction, prev: ComponentInstruction): any {
         this.ossService.getUserRepositories("tomastrajan")
             .subscribe(
                 (repos: any) => this.repos = repos,

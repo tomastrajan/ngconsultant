@@ -14,6 +14,7 @@ bootstrap(AppComponent, [
     provide(LocationStrategy, {useClass: HashLocationStrategy})
 ]).then(() => {
     (<any>$(".button-collapse")).sideNav({
+        edge: "left",
         closeOnClick: true
     });
 });
