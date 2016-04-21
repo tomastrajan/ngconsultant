@@ -29,7 +29,12 @@ body {
 
   &.oss {
     background: url("../images/background-blog.jpg") top center no-repeat;
-    background-size: contain;
+    background-size: 100% auto;
+  }
+
+  &.contact {
+    background: url("../images/background-contact.jpg") top center no-repeat;
+    background-size: 100% auto;
   }
 }
 
