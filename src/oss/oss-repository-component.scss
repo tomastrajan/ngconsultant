@@ -3,6 +3,10 @@
   .card {
     background-color: $white;
 
+    @media #{$small-and-down} {
+      width: 100%;
+    }
+
     .card-content {
       min-height: 160px;
     }
