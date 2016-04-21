@@ -26,6 +26,14 @@
   }
 
   .form {
+
+    .select-wrapper {
+      li span span {
+        display: inline-block;
+        width: 100px;
+      }
+    }
+
     .send {
       background-color: $ngc-primary;
     }
