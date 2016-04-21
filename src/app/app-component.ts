@@ -37,6 +37,12 @@ export default class AppComponent {
         this.router
             .subscribe((route: string) => {
                 this.route = route;
+
+                // materialize css init after component change
+                (<any>$("select")).material_select();
+                (<any>$("datepicker")).pickadate({
+                    selectMonths: true
+                });
             });
     }
 

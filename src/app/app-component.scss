@@ -46,6 +46,14 @@ nav {
     margin: 0;
   }
 
+  a {
+    font-weight: bold;
+
+    &:hover {
+      color: $ngc-primary-darken;
+    }
+  }
+
   #logo-container {
     color: $primary-color;
 

@@ -1,0 +1,34 @@
+.contact {
+
+  .social {
+
+    a {
+      position: relative;
+      display: block;
+      padding: 10px 0 10px 35px;
+      color: $primary-color;
+
+      &:hover {
+        font-weight: bold;
+
+        i {
+          color: $ngc-primary-darken
+        }
+      }
+
+      i {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        color: $ngc-primary;
+      }
+    }
+  }
+
+  .form {
+    .send {
+      background-color: $ngc-primary;
+    }
+  }
+
+}

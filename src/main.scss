@@ -9,11 +9,4 @@
 @import "sandbox/sandbox-component";
 @import "oss/oss-component";
 @import "oss/oss-repository-component";
-
-a {
-  font-weight: bold;
-
-  &:hover {
-    color: $ngc-primary-darken;
-  }
-}
+@import "contact/contact-component";
