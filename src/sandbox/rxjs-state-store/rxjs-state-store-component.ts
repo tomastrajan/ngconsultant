@@ -5,6 +5,7 @@ import { Component } from "angular2/core";
     template: `
         <div>
             <h1>RxJS State Store</h1>
+            <p>Comming soon...</p>
         </div>
     `
 })

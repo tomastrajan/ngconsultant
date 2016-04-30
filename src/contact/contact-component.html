@@ -6,12 +6,14 @@
                 <div class="col s12">
                     <blockquote>
                         <p class="flow-text">
-                            No agam quidam ius, id quando legendos duo, quas simul at vix. Duo tation vituperatoribus ei.
+                            <strong>Enable your team</strong><br />
+                            by bringing in Angular JS consulting expertise
                         </p>
                     </blockquote>
                     <p>
-                        Sit quem recusabo an, eu sonet ceteros suavitate ius. An movet laboramus accommodare eos, ad
-                        cum esse nostrum nominati, ea ipsum dolorum mel.
+                        Feel free to drop me a line. Whether you are manager in charge of Angular project or developer
+                        passionate about the technology. We can discuss how what kind of value can be provided in your
+                        particular.
                     </p>
                 </div>
             </div>
@@ -29,70 +31,91 @@
                 <div class="col s6">
                     <a href="https://www.linkedin.com/in/tomastrajan"><i class="zmdi zmdi-linkedin zmdi-hc-2x"></i> Linked in</a>
                     <a href="http://stackoverflow.com/users/2650426/tomastrajan"><i class="zmdi zmdi-stackoverflow zmdi-hc-2x"></i> Stack overflow</a>
+                    <a href="https://slides.com/tomastrajan/"><i class="zmdi zmdi-slideshow zmdi-hc-2x"></i> Slides</a>
                 </div>
             </div>
         </div>
         <div class="col m12 l6 form">
-            <div class="row">
-                <div class="input-field col s12">
-                    <select>
-                        <option value="" disabled selected>You are interested in...</option>
-                        <option value="coach"><span>Coach</span> workshops for your teams / coaching / reviews</option>
-                        <option value="developer"><span>Developer</span> contract / full-time</option>
-                        <option value="techlead"><span>Tech lead</span> process / architecture / best practices</option>
-                        <option value="architect"><span>Architect</span> greenfield projects / bootstrap </option>
-                        <option value="other"><span>Other</span></option>
-                    </select>
-                    <label>How can I help?</label>
-                </div>
+            <div *ngIf="submitted">
+                <blockquote>
+                    <p class="flow-text">
+                        <strong>Thank you</strong> for your message, I'll get back to you as soon as possible.
+                    </p>
+                </blockquote>
+                <p>
+                    In the mean time, you may find more interesting content on the
+                    <a href="http://blog.ngconsultant.io" target="_blank">blog</a>, check offered
+                    <a [routerLink]="['Services']">services</a> or send another
+                    <a href="javascipt:void(0)" (click)="onReload()">message.</a>
+                </p>
             </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="name" type="text" class="validate" />
-                    <label for="name">Name</label>
+            <form [ngFormModel]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!submitted">
+                <div class="row">
+                    <div class="col s12">
+                        <label>How can I help?</label>
+                        <select class="browser-default" ngControl="interest">
+                            <option value="" disabled selected>You are interested in...</option>
+                            <option value="coach"><span>Coach</span> workshops for your teams / coaching / reviews</option>
+                            <option value="developer"><span>Developer</span> contract / full-time</option>
+                            <option value="techlead"><span>Tech lead</span> process / architecture / best practices</option>
+                            <option value="architect"><span>Architect</span> greenfield projects / bootstrap </option>
+                            <option value="other"><span>Other</span></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="company" type="text" class="validate" />
-                    <label for="company">Company</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="name" type="text" ngControl="name" />
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="company" type="text" ngControl="company" />
+                        <label for="company">Company</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <select class="validate">
-                        <option value="" disabled selected>Your role...</option>
-                        <option value="hr">Human resources</option>
-                        <option value="dev">Development</option>
-                        <option value="sales">Sales</option>
-                        <option value="manager">Manager</option>
-                        <option value="entrepreneur">Entrepreneur</option>
-                    </select>
-                    <label>Position</label>
+                <div class="row">
+                    <div class="col s12">
+                        <label>Position</label>
+                        <select class="browser-default" ngControl="position">
+                            <option value="" disabled selected>Your role...</option>
+                            <option value="hr">Human resources</option>
+                            <option value="dev">Development</option>
+                            <option value="sales">Sales</option>
+                            <option value="manager">Manager</option>
+                            <option value="entrepreneur">Entrepreneur</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="email" type="email" ngControl="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="phone" type="text" ngControl="phone">
+                        <label for="phone">Phone</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="phone" type="text" class="validate">
-                    <label for="phone">Phone</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="message" class="materialize-textarea" length="120" ngControl="message"></textarea>
+                        <label for="message">Message</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="message" class="materialize-textarea" length="120"></textarea>
-                    <label for="message">Message</label>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn-large send" type="submit">
+                            <i class="material-icons left">mail_outline</i> Send
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn-large reset right" (click)="onReset()">
+                            <i class="material-icons left">clear</i> Reset
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s6"></div>
-                <div class="col s6">
-                    <a class="waves-effect waves-light btn-large send">
-                        <i class="material-icons left">mail_outline</i> Send
-                    </a>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

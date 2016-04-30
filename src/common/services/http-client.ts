@@ -51,13 +51,12 @@ export default class HttpClient {
         this.pending.next(++this.pendingCount > 0);
         
         return this.http.request(url, options)
-            .do(() => this.pending.next(--this.pendingCount > 0))
-            .map((res: Response) => res.json())
-            .catch((err: Response) => {
-                this.error.next(err.json());
-                this.pending.next(--this.pendingCount > 0);
-                return Observable.of((() => { throw err.json(); })());
-            });
+            .do(
+                () => {},
+                err => this.error.next(err.json()),
+                () => this.pending.next(--this.pendingCount > 0)
+            )
+            .map((res: Response) => res.json());
     }
 
 };

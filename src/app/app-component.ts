@@ -4,7 +4,6 @@ import { ROUTER_DIRECTIVES, RouteConfig, Router } from "angular2/router";
 import HttpClient from "../common/services/http-client";
 
 import HomeComponent from "../home/home-component";
-import BlogComponent from "../blog/blog-component";
 import ContactComponent from "../contact/contact-component";
 import OssComponent from "../oss/oss-component";
 import ServicesComponent from "../services/services-component";
@@ -21,11 +20,11 @@ import SandboxComponent from "../sandbox/sandbox-component";
     { path: "/services", name: "Services", component: ServicesComponent },
     { path: "/oss", name: "Oss", component: OssComponent },
     { path: "/sandbox/...", name: "Sandbox", component: SandboxComponent },
-    { path: "/blog", name: "Blog", component: BlogComponent },
     { path: "/contact", name: "Contact", component: ContactComponent }
 ])
 export default class AppComponent {
 
+    public blogUrl: string = "https://blog.ngconsultant.io";
     public year: number = new Date().getFullYear();
     public route: string;
     public pending: boolean = false;
@@ -39,10 +38,12 @@ export default class AppComponent {
                 this.route = route;
 
                 // materialize css init after component change
-                (<any>$("select")).material_select();
-                (<any>$("datepicker")).pickadate({
-                    selectMonths: true
-                });
+                setTimeout(() => {
+                    // (<any>$("select")).material_select();
+                    (<any>$("datepicker")).pickadate({
+                        selectMonths: true
+                    });
+                }, 10);
             });
     }
 
