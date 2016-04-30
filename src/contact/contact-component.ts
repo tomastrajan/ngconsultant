@@ -1,6 +1,6 @@
 import { Component } from "angular2/core";
 import { ROUTER_DIRECTIVES, Router } from "angular2/router";
-import { FORM_DIRECTIVES, ControlGroup, FormBuilder, Validators, Control } from "angular2/common";
+import {FORM_DIRECTIVES, ControlGroup, FormBuilder, Validators, Control, AbstractControl} from "angular2/common";
 
 import { emailValidator } from "../common/services/validation-service";
 
@@ -26,7 +26,7 @@ export default class ContactComponent {
         });
     }
 
-    public onSubmit() {
+    public onSubmit(): void {
         if (!this.contactForm.valid) {
             this.getControls().forEach((control: Control) => control.markAsDirty());
             return;
@@ -35,18 +35,18 @@ export default class ContactComponent {
         console.log(this.contactForm.value); // TODO send logic
     }
 
-    public onReset() {
+    public onReset(): void {
         this.getControls().forEach((control: Control) => control.updateValue(""));
         this.contactForm.updateValueAndValidity();
     }
 
-    public onReload() {
+    public onReload(): void {
         this.router.navigate(["Home"]);
         this.router.navigate(["Contact"]);
     }
 
-    private getControls() {
-        return Object.keys(this.contactForm.controls).map(prop => this.contactForm.controls[prop]);
+    private getControls(): AbstractControl[] {
+        return Object.keys(this.contactForm.controls).map((prop: string) => this.contactForm.controls[prop]);
     }
-    
+
 }

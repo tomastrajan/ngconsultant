@@ -11,7 +11,8 @@
     "mocha": "mocha --require ts-node/register src/**/*-unit-test.ts",
     "test": "npm run lint",
     "build": "webpack --env.TARGET PROD",
-    "ci": "npm t && npm run build"
+    "ci": "npm t && npm run build",
+    "prod": "npm run build && node server.js"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.14",
