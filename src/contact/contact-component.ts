@@ -3,18 +3,20 @@ import { ROUTER_DIRECTIVES, Router } from "angular2/router";
 import {FORM_DIRECTIVES, ControlGroup, FormBuilder, Validators, Control, AbstractControl} from "angular2/common";
 
 import { emailValidator } from "../common/services/validation-service";
+import ContactService from "./contact-service";
 
 @Component({
     selector: "contact",
     template: require("./contact-component.html"),
-    directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES]
+    directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES],
+    providers: [ContactService]
 })
 export default class ContactComponent {
 
     private submitted: boolean = false;
     private contactForm: ControlGroup;
 
-    constructor(private formBuilder: FormBuilder, private router: Router) {
+    constructor(private formBuilder: FormBuilder, private router: Router, private service: ContactService) {
         this.contactForm = this.formBuilder.group({
             interest: ["", Validators.required],
             name: ["", Validators.required],
@@ -31,8 +33,9 @@ export default class ContactComponent {
             this.getControls().forEach((control: Control) => control.markAsDirty());
             return;
         }
-        this.submitted = true;
-        console.log(this.contactForm.value); // TODO send logic
+        this.service
+            .sendContactForm(this.contactForm.value)
+            .subscribe(() => this.submitted = true);
     }
 
     public onReset(): void {

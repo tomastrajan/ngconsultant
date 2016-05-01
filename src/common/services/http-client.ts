@@ -1,6 +1,6 @@
 import { Injectable } from "angular2/core";
-import { Http, RequestOptionsArgs, Response, RequestOptions } from "angular2/http";
-import { Subject, Observable } from "rxjs";
+import { Http, RequestOptionsArgs, Response, RequestOptions, Headers } from "angular2/http";
+import { Subject } from "rxjs";
 
 @Injectable()
 export default class HttpClient {
@@ -40,17 +40,18 @@ export default class HttpClient {
         return this.http;
     }
     
-    private doRequest(method: string, url: string, data: any, options?: RequestOptionsArgs) {
-        const opts = new RequestOptions();
-        opts.method = method;
-        opts.url = url;
-        opts.body = data ? JSON.stringify(data) : undefined;
-        
+    private doRequest(method: string, url: string, body: any, options?: RequestOptionsArgs) {
+        var headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        body = body ? JSON.stringify(body) : undefined;
+        const opts = new RequestOptions({ method, headers, body, url });
+
         Object.assign(opts, options);
         
         this.pending.next(++this.pendingCount > 0);
         
-        return this.http.request(url, options)
+        return this.http.request(url, opts)
             .do(
                 () => {},
                 err => this.error.next(err.json()),
